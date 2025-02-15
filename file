@@ -1,0 +1,10 @@
+first time : 
+python -m venv venv
+venv\scripts\activate.bat
+pip install -r requirements.txt
+
+to run : 
+venv\scripts\activate.bat
+streamlit run code.py
+
+admin password : Admin admin123

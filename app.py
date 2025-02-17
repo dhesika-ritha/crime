@@ -116,42 +116,40 @@ def test():
                                         else:
                                                 st.warning("Please select at least one feature for the Area Chart.")
 
-                                elif selected == "Prediction":
-                                        st.dataframe(df)
+                        elif selected == "Prediction":
+                                st.dataframe(df)
             
-                                        st.subheader('District Prediction:')
-                                        row1 = st.selectbox('Select the district:', df['DISTRICT'].unique()) #unique() so you have distict select options
-                                        row2 = st.selectbox('Select the state:', df['STATE/UT'].unique())
+                                st.subheader('District Prediction:')
+                                row1 = st.selectbox('Select the district:', df['DISTRICT'].unique()) #unique() so you have distict select options
+                                row2 = st.selectbox('Select the state:', df['STATE/UT'].unique())
 
-                                        selected_rows = df[(df['DISTRICT'] == row1) & (df['STATE/UT'] == row2)]
+                                selected_rows = df[(df['DISTRICT'] == row1) & (df['STATE/UT'] == row2)]
 
-                                        if st.button('Predict'):
-                                                if not selected_rows.empty:
-                                                        result = selected_rows['MURDER'].sum()
-                                                        st.write("The total predicted murders: " + str(result))
-
-                                                        if result > 1000:
-                                                                st.subheader('This area might have a high Crime Rate')
-                                                        else:
-                                                                st.subheader('This area has a lower Crime Rate')
+                                if st.button('Predict'):
+                                        if not selected_rows.empty:
+                                                result = selected_rows['MURDER'].sum()
+                                                st.write("The total predicted murders: " + str(result))
+                                                if result > 1000:
+                                                        st.subheader('This area might have a high Crime Rate')
                                                 else:
-                                                        st.error("No data found for the selected District and State. Please select other values.")
-
-                                        if st.checkbox("Area graph with different factors for predictions"):
-                                                all_columns = df.columns.to_list()
-                                                feat_choices = st.multiselect("Choose a Feature", all_columns)
-                                                if feat_choices:
-                                                        new_df = df[feat_choices]
-                                                        st.subheader('Area Chart:')
-                                                        st.area_chart(new_df)
-                                                else:
-                                                        st.warning("Please select at least one feature for the Area Chart.")
+                                                        st.subheader('This area has a lower Crime Rate')
+                                        else:
+                                                st.error("No data found for the selected District and State. Please select other values.")
+                                if st.checkbox("Area graph with different factors for predictions"):
+                                        all_columns = df.columns.to_list()
+                                        feat_choices = st.multiselect("Choose a Feature", all_columns)
+                                        if feat_choices:
+                                                new_df = df[feat_choices]
+                                                st.subheader('Area Chart:')
+                                                st.area_chart(new_df)
+                                        else:
+                                                st.warning("Please select at least one feature for the Area Chart.")
 
 
 def main():
 
         st.markdown("<h1 style='text-align: center; color: green;'>Crime Rate Prediction System</h1>", unsafe_allow_html=True)
-        menu = ["HOME","ADMIN LOGIN","USER LOGIN","SIGN UP"]
+        menu = ["HOME","ADMIN LOGIN","USER LOGIN","SIGN UP","ABOUT US"]
         choice = st.sidebar.selectbox("Menu",menu)
 
 
@@ -216,6 +214,9 @@ def main():
                         st.success("You have successfully created a valid Account")
                         st.info("Go to User Login Menu to login")
 
+        elif choice == "ABOUT US":
+                st.header("CREATED BY _**NAME**_")
+                st.subheader("UNDER THE GUIDENCE OF _**GUIDE DETAILS**_")
 
 
 if __name__ == '__main__':

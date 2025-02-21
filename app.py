@@ -158,7 +158,7 @@ def main():
 
         if choice == "HOME":
                 st.markdown("<h1 style='text-align: center;'>HOMEPAGE</h1>", unsafe_allow_html=True)
-                st.image("img.jpg")
+                st.image("img.jpg",width=1000)
                 time.sleep(3)
                 st.warning("Goto Menu Section To Login !")
 

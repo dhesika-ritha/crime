@@ -47,7 +47,7 @@ def view_all_users():
         return data
 
 def test():
-        st.image("img2.jpg",width=200)
+        st.image("img2.jpg",width=1000)
 
         st.subheader("Predicts your data in an accurate manner")
 

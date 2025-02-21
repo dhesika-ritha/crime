@@ -71,7 +71,9 @@ def test():
                                 df = pd.read_excel(uploaded_file) # Or it could be an Excel file
 
                         if selected == "Home":
+                                
                                 st.subheader('Process of predicting the crime rate')
+                                st.image("img2.jpg")
                                 st.write(
                                         "Crime analysis and prediction is a systematic approach for identifying the crime."
                                         " This system can predict regions which have high probability for crime occurrences and visualize crime "
@@ -155,6 +157,7 @@ def main():
 
         if choice == "HOME":
                 st.markdown("<h1 style='text-align: center;'>HOMEPAGE</h1>", unsafe_allow_html=True)
+                st.image("img.jpg")
                 time.sleep(3)
                 st.warning("Goto Menu Section To Login !")
 

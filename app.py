@@ -47,6 +47,7 @@ def view_all_users():
         return data
 
 def test():
+        st.image("img2.jpg")
 
         st.subheader("Predicts your data in an accurate manner")
 
@@ -73,7 +74,7 @@ def test():
                         if selected == "Home":
                                 
                                 st.subheader('Process of predicting the crime rate')
-                                st.image("img2.jpg")
+                                
                                 st.write(
                                         "Crime analysis and prediction is a systematic approach for identifying the crime."
                                         " This system can predict regions which have high probability for crime occurrences and visualize crime "
